@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+  <head>
+    <title>My Spotify Best Playlists</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <style>
+      .container {
+        max-width: 1000px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <h2> </h2>
+                <h1>Best Electronic Albums of 2016</h1>
+                <h3>*my version</h3>
+                <hr>
+                {% for k,v in rdic16.items() %}
+                  <h4><img src={{imurl16[k]}}>&nbsp&nbsp&nbsp&nbsp&nbsp<a href={{urls16[k]}}>{{artist_dic_sw16[k]}}&nbsp-&nbsp{{k}}</a></h4>
+                    <ul>
+                      {% for key,value in v.items() %}
+                      <li>{{key}}&nbsp-&nbsp{{value}}</li>
+                      {% endfor %}
+                    </ul>
+                <hr>
+                {% endfor %}
+            </div>
+            <div class="col-md-6">
+                <h2> </h2>
+                <h1>Best Electronic Albums of 2017</h1>
+                <h3>*my version (updating in progress)</h3>
+                <hr>
+                {% for k,v in rdic17.items() %}
+                  <h4><img src={{imurl17[k]}}>&nbsp&nbsp&nbsp&nbsp&nbsp<a href={{urls17[k]}}>{{artist_dic_sw17[k]}}&nbsp-&nbsp{{k}}</a></h4>
+                    <ul>
+                      {% for key,value in v.items() %}
+                      <li>{{key}}&nbsp-&nbsp{{value}}</li>
+                      {% endfor %}
+                    </ul>
+                <hr>
+                {% endfor %}
+            </div>
+         </div>
+        {% for error in errors %}
+        <h4>{{ error }}</h4>
+        {% endfor %}
+    </div>
+    <script src="//code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  </body>
+</html>

@@ -1,1 +1,1 @@
-web: python spoty_flask.py
+web gunicorn spoty_flask:app

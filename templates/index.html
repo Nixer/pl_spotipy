@@ -6,7 +6,7 @@
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <style>
       .container-fluid {
-        max-width: 1000px;
+        max-width: 1100px;
         padding: 15px;
       }
     </style>
@@ -15,46 +15,67 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6">
-                <h2> </h2>
-                <h1>Best Electronic Albums 2016</h1>
-                <h3>*my version</h3>
+                <h2>Best Electronic Albums 2016</h2>
+                <h5>*my version</h5>
                 <hr>
                 {% for k,v in rdic16.items() %}
                 <table class="table">
                     <thead>
                         <tr>
-                            <td><img src={{imurl16[k]}}></td>
-                            <td class="text-left"><h4><a href={{urls16[k]}}>{{artist_dic_sw16[k]}}&nbsp-&nbsp{{k}}</a></h4></td>
+                            <td width="15%"><a href={{urls16[k]}}><img src={{imurl16[k]}}></a></td>
+                            <td width="85%" class="text-left">
+                                <div class="panel-group">
+                                  <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                      <h4 class="panel-title">
+                                        <a data-toggle="collapse" href="#collapse{{nsp16[k]}}"><b>{{k}}</b></a><br><i>{{artist_dic_sw16[k]}}</i>
+                                      </h4>
+                                    </div>
+                                    <div id="collapse{{nsp16[k]}}" class="panel-collapse collapse">
+                                      <ul class="list-group">
+                                          {% for key,value in v.items() %}
+                                          <li class="list-group-item">{{key}}&nbsp-&nbsp{{value}}</li>
+                                          {% endfor %}
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                            </td>
                         </tr>
                     </thead>
                 </table>
-                    <ul>
-                      {% for key,value in v.items() %}
-                      <li>{{key}}&nbsp-&nbsp{{value}}</li>
-                      {% endfor %}
-                    </ul>
-                <hr>
                 {% endfor %}
             </div>
             <div class="col-md-6">
-                <h2> </h2>
-                <h1>Best Electronic Albums 2017</h1>
-                <h3>*my version (updating in progress)</h3>
+                <h2>Best Electronic Albums 2017</h2>
+                <h5>*my version (<i>updating in progress</i>)</h5>
                 <hr>
                 {% for k,v in rdic17.items() %}
-                <table class="table">
+                  <table class="table">
                     <thead>
                         <tr>
-                            <td><img src={{imurl17[k]}}></td>
-                            <td class="text-left"><h4><a href={{urls17[k]}}>{{artist_dic_sw17[k]}}&nbsp-&nbsp{{k}}</a></h4></td>
+                            <td width="15%"><a href={{urls17[k]}}><img src={{imurl17[k]}}></a></td>
+                            <td width="85%" class="text-left">
+                                <div class="panel-group">
+                                  <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                      <h4 class="panel-title">
+                                        <a data-toggle="collapse" href="#collapse{{nsp17[k]}}"><b>{{k}}</b></a><br><i>{{artist_dic_sw17[k]}}</i>
+                                      </h4>
+                                    </div>
+                                    <div id="collapse{{nsp17[k]}}" class="panel-collapse collapse">
+                                      <ul class="list-group">
+                                          {% for key,value in v.items() %}
+                                          <li class="list-group-item">{{key}}&nbsp-&nbsp{{value}}</li>
+                                          {% endfor %}
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                            </td>
                         </tr>
                     </thead>
-                </table>                    <ul>
-                      {% for key,value in v.items() %}
-                      <li>{{key}}&nbsp-&nbsp{{value}}</li>
-                      {% endfor %}
-                    </ul>
-                <hr>
+                </table>
                 {% endfor %}
             </div>
          </div>

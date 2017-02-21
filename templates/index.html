@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <style>
-      .container {
+      .container-fluid {
         max-width: 1000px;
+        padding: 15px;
       }
     </style>
   </head>
@@ -15,11 +16,18 @@
         <div class="row">
             <div class="col-md-6">
                 <h2> </h2>
-                <h1>Best Electronic Albums of 2016</h1>
+                <h1>Best Electronic Albums 2016</h1>
                 <h3>*my version</h3>
                 <hr>
                 {% for k,v in rdic16.items() %}
-                  <h4><img src={{imurl16[k]}}>&nbsp&nbsp&nbsp&nbsp&nbsp<a href={{urls16[k]}}>{{artist_dic_sw16[k]}}&nbsp-&nbsp{{k}}</a></h4>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <td><img src={{imurl16[k]}}></td>
+                            <td class="text-left"><h4><a href={{urls16[k]}}>{{artist_dic_sw16[k]}}&nbsp-&nbsp{{k}}</a></h4></td>
+                        </tr>
+                    </thead>
+                </table>
                     <ul>
                       {% for key,value in v.items() %}
                       <li>{{key}}&nbsp-&nbsp{{value}}</li>
@@ -30,12 +38,18 @@
             </div>
             <div class="col-md-6">
                 <h2> </h2>
-                <h1>Best Electronic Albums of 2017</h1>
+                <h1>Best Electronic Albums 2017</h1>
                 <h3>*my version (updating in progress)</h3>
                 <hr>
                 {% for k,v in rdic17.items() %}
-                  <h4><img src={{imurl17[k]}}>&nbsp&nbsp&nbsp&nbsp&nbsp<a href={{urls17[k]}}>{{artist_dic_sw17[k]}}&nbsp-&nbsp{{k}}</a></h4>
-                    <ul>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <td><img src={{imurl17[k]}}></td>
+                            <td class="text-left"><h4><a href={{urls17[k]}}>{{artist_dic_sw17[k]}}&nbsp-&nbsp{{k}}</a></h4></td>
+                        </tr>
+                    </thead>
+                </table>                    <ul>
                       {% for key,value in v.items() %}
                       <li>{{key}}&nbsp-&nbsp{{value}}</li>
                       {% endfor %}

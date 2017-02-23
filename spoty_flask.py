@@ -22,12 +22,12 @@ def index():
 
     '''Process json data and return simple dictionaries'''
     def get_tracks_dic(tracks):
-        result_dic = {}  # dictionary: {album_name: {track_name: artist_name}}
-        tracks_dic = {}
-        artist_dic = {}
-        images = {}  # dictionary: {album_name: image_url}
-        urls = {}  # dictionary: {album_name: spotify_url}
-        tracks_artist_dic = {}
+        result_dic = {}     # !dictionary: {album_name: {track_name: artist_name}}
+        tracks_dic = {}     # dictionary: {track_name: album_name}
+        artist_dic = {}     # !dictionary: {artist_name: album_name}
+        images = {}         # !dictionary: {album_name: image_url}
+        urls = {}           # !dictionary: {album_name: spotify_url}
+        tracks_artist_dic = {}  # dictionary: {track_name: artist_name}
         tracks_temp = {}
 
         for i in range(len(tracks)):
@@ -43,6 +43,28 @@ def index():
                     tracks_temp[k] = tracks_artist_dic[k]
                     result_dic[value] = tracks_temp
             tracks_temp = {}
+
+        result_dic = dict((key, value) for (key, value) in result_dic.items() if len(value) > 1)
+
+        for key, value in artist_dic.items():
+            if value in result_dic.keys():
+                artist_dic[key] = value
+            else:
+                pass
+
+        for key, value in images.items():
+            if key in result_dic.keys():
+                images[key] = value
+            else:
+                pass
+
+        for key, value in urls.items():
+            if key in result_dic.keys():
+                urls[key] = value
+            else:
+                pass
+
+        artist_dic = dict((key, value) for (key, value) in artist_dic.items() if len(value) > 1)
 
         switched_artist_dic = {artist_dic[k]: k for k in artist_dic}  # dictionary: {album_name: artist_name}
         artist_list_nospace = {k:v.replace(" ", "").replace("'", "").replace("&", "") for k, v in switched_artist_dic.items()}

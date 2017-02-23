@@ -44,6 +44,7 @@ def get_tracks_dic(tracks):
                 result_dic[value] = tracks_temp
         tracks_temp = {}
 
+    result_dic = dict((key, value) for (key, value) in result_dic.items() if len(value) > 1)
     file_tracks.write(json.dumps(result_dic, indent=4))
     file_tracks.close()
 

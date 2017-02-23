@@ -64,8 +64,6 @@ def index():
             else:
                 pass
 
-        artist_dic = dict((key, value) for (key, value) in artist_dic.items() if len(value) > 1)
-
         switched_artist_dic = {artist_dic[k]: k for k in artist_dic}  # dictionary: {album_name: artist_name}
         artist_list_nospace = {k:v.replace(" ", "").replace("'", "").replace("&", "") for k, v in switched_artist_dic.items()}
         return switched_artist_dic, result_dic, images, urls, artist_list_nospace

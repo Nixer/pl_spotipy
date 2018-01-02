@@ -6,7 +6,7 @@
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <style>
       .container-fluid {
-        max-width: 1050px;
+        max-width: 1280px;
         padding: 15px;
       }
       .panel-group {
@@ -20,8 +20,8 @@
   <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-6">
-                <h2 class='text-info'>Best Electronic Albums 2016</h2>
+            <div class="col-md-4">
+                <h2 class='text-info'>Best Electronic<br>Releases of 2016</h2>
                 <h5 class='text-info'>*my version</h5>
                 <hr>
                 {% for k,v in rdic16.items() %}
@@ -52,9 +52,9 @@
                 </table>
                 {% endfor %}
             </div>
-            <div class="col-md-6">
-                <h2 class='text-success'>Best Electronic Albums 2017</h2>
-                <h5 class='text-success'>*my version (<i>updating in progress</i>)</h5>
+            <div class="col-md-4">
+                <h2 class='text-success'>Best Electronic<br>Releases of 2017</h2>
+                <h5 class='text-success'>*my version</h5>
                 <hr>
                 {% for k,v in rdic17.items() %}
                   <table class="table">
@@ -70,6 +70,38 @@
                                       </h4>
                                     </div>
                                     <div id="collapse{{nsp17[k]}}" class="panel-collapse collapse">
+                                      <ul class="list-group">
+                                          {% for key,value in v.items() %}
+                                          <li class="list-group-item">{{key}}&nbsp-&nbsp{{value}}</li>
+                                          {% endfor %}
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </thead>
+                </table>
+                {% endfor %}
+            </div>
+            <div class="col-md-4">
+                <h2 class='text-warning'>Best Electronic<br>Releases of 2018</h2>
+                <h5 class='text-warning'>*my version (<i>updating in progress</i>)</h5>
+                <hr>
+                {% for k,v in rdic18.items() %}
+                  <table class="table">
+                    <thead>
+                        <tr>
+                            <td width="15%"><a href={{urls18[k]}} title="Spotify Link"><img src={{imurl18[k]}} class="img-thumbnail" alt="Spotify Link"></a></td>
+                            <td width="85%" class="text-left">
+                                <div class="panel-group">
+                                  <div class="panel panel-warning">
+                                    <div class="panel-heading">
+                                      <h4 class="panel-title">
+                                        <a data-toggle="collapse" href="#collapse{{nsp18[k]}}" title="collapsible playlist"><b>{{k}}</b></a><br><i>{{artist_dic_sw18[k]}}</i>
+                                      </h4>
+                                    </div>
+                                    <div id="collapse{{nsp18[k]}}" class="panel-collapse collapse">
                                       <ul class="list-group">
                                           {% for key,value in v.items() %}
                                           <li class="list-group-item">{{key}}&nbsp-&nbsp{{value}}</li>
